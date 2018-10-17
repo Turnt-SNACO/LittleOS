@@ -1,0 +1,8 @@
+
+*.swp
+
+bochslog\.txt
+
+kmain\.o
+
+kernel\.elf
