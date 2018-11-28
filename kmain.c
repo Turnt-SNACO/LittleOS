@@ -15,7 +15,8 @@
 #define SERIAL_LINE_ENABLE_DLAB         0x80
 
 char * fb_colors = (char *) 0x000B8000;
-int index = 0;
+void FBMoveCursor(unsigned short position);
+
 
 void FBWriteCell(unsigned int i, char c, unsigned char foreground, unsigned char background)
 {
@@ -25,16 +26,7 @@ void FBWriteCell(unsigned int i, char c, unsigned char foreground, unsigned char
 
 void KMain()
 {
-    write("hello", 5);
-}
-
-int write(char * buf, unsigned int length)
-{
-    int i = 0;
-    for (i; i < length; i++)
-    {
-        FBWriteCell(index++, buf[i], COLOR_DARK_GREY, COLOR_GREEN);
-    }
+    FBWriteCell(0, 'H', COLOR_GREEN, COLOR_DARK_GREY);
 }
 
 void FBMoveCursor(unsigned short position)
