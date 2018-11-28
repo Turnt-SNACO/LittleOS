@@ -26,7 +26,19 @@ void FBWriteCell(unsigned int i, char c, unsigned char foreground, unsigned char
 
 void KMain()
 {
-    FBWriteCell(0, 'H', COLOR_GREEN, COLOR_DARK_GREY);
+    //FBWriteCell(0, 'H', COLOR_GREEN, COLOR_DARK_GREY);
+    char * hello = "hello";
+    write(hello, 5);
+}
+
+int write(char * buf, unsigned int length)
+{
+    unsigned int i = 0;
+    for (;i < length; i++)
+    {
+        FBWriteCell(2*i, buf[(int)i], COLOR_GREEN, COLOR_DARK_GREY);
+    }
+    return 0;
 }
 
 void FBMoveCursor(unsigned short position)
