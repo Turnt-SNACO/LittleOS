@@ -21,11 +21,13 @@ loader:                         ; the loader label (defined as entry point in li
     mov eax, 0xCAFEBABE         ; place the number 0xCAFEBABE in the register eax
     ;assembly code
     mov esp, kernel_stack + KERNEL_STACK_SIZE	;esp is end of stack
-    extern sum_of_three
+    extern SumOfThree
+    extern KMain
     push dword 3
     push dword 2
     push dword 1
-    call sum_of_three
+    call SumOfThree
+    call KMain
 
 .loop:
     jmp .loop                   ; loop forever
